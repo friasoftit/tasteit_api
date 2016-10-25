@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1614BAC2-7F39-4C01-9E89-6975FFB3D2F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TasteIt.Domain</RootNamespace>
+    <AssemblyName>TasteIt.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mapping\AsentamientoMap.cs" />
+    <Compile Include="Mapping\CalificacionMap.cs" />
+    <Compile Include="Mapping\CategoriaMap.cs" />
+    <Compile Include="Mapping\ComentarioEstablecimientoMap.cs" />
+    <Compile Include="Mapping\EstablecimientoMap.cs" />
+    <Compile Include="Mapping\EstadoMap.cs" />
+    <Compile Include="Mapping\ImagenMap.cs" />
+    <Compile Include="Mapping\MunicipioMap.cs" />
+    <Compile Include="Mapping\OrigenImagenMap.cs" />
+    <Compile Include="Mapping\PromocionMap.cs" />
+    <Compile Include="Mapping\RolMap.cs" />
+    <Compile Include="Mapping\TipoAsentamientoMap.cs" />
+    <Compile Include="Mapping\TipoEstablecimientoMap.cs" />
+    <Compile Include="Mapping\TipoImagenMap.cs" />
+    <Compile Include="Mapping\UbicacionMap.cs" />
+    <Compile Include="Mapping\UsuarioMap.cs" />
+    <Compile Include="Mapping\ValoracionEstablecimientoMap.cs" />
+    <Compile Include="Model\Asentamiento.cs" />
+    <Compile Include="Model\Calificacion.cs" />
+    <Compile Include="Model\Categoria.cs" />
+    <Compile Include="Model\ComentarioEstablecimiento.cs" />
+    <Compile Include="Model\Establecimiento.cs" />
+    <Compile Include="Model\Estado.cs" />
+    <Compile Include="Model\Imagen.cs" />
+    <Compile Include="Model\Municipio.cs" />
+    <Compile Include="Model\OrigenImagen.cs" />
+    <Compile Include="Model\Promocion.cs" />
+    <Compile Include="Model\TipoAsentamiento.cs" />
+    <Compile Include="Model\TipoEstablecimiento.cs" />
+    <Compile Include="Model\TipoImagen.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Rol.cs" />
+    <Compile Include="Model\Ubicacion.cs" />
+    <Compile Include="Model\Usuario.cs" />
+    <Compile Include="Model\ValoracionEstablecimiento.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

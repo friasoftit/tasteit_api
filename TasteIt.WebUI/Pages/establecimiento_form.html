@@ -1,0 +1,40 @@
+﻿<div class="m+" flex-container="row" flex-gutter="24">
+    <div flex-item="12">
+        <div class="card">
+            <form>
+                <lx-text-field label="Nombre" fixed-label="true" icon="city">
+                    <input type="text" ng-model="establecimiento.Nombre">
+                </lx-text-field>
+
+                <lx-text-field label="Contacto" fixed-label="true" icon="account">
+                    <input type="text" ng-model="establecimiento.Contacto">
+                </lx-text-field>
+
+                <lx-text-field label="Teléfono" fixed-label="true" icon="phone">
+                    <input type="text" ng-model="establecimiento.fixedLastName">
+                </lx-text-field>
+
+                <lx-text-field label="Correo" fixed-label="true" icon="email">
+                    <input type="email" ng-model="establecimiento.CorreoElectronico">
+                </lx-text-field>
+
+                <lx-text-field label="Dirección" fixed-label="true" icon="city">
+                    <input type="text" ng-model="ubicacion.Direccion">
+                </lx-text-field>
+
+                <lx-select ng-model="ajax.selected" change="cbSelect.exec(newValue, oldValue)" placeholder="Lorem Ipsum"
+                           choices="ajax.list" filter="ajax.update(newValue, oldValue)" loading="{{ ajax.loading }}"
+                           min-length="2" allow-clear="true" selection-to-model="ajax.toModel(data, callback)"
+                           model-to-selection="ajax.toSelection(data, callback)">
+                    <lx-select-selected>
+                        {{ $selected.Title }} ({{ $selected.Year }})
+                    </lx-select-selected>
+
+                    <lx-select-choices>
+                        {{ $choice.Title }} - {{ $choice.Type }}
+                    </lx-select-choices>
+                </lx-select>
+            </form>
+        </div>
+    </div>
+</div>

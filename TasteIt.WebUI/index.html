@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html ng-app="TasteIt">
+<head>
+    <title></title>
+    <!--<link href="Content/materialdesignicons.css" rel="stylesheet" />-->
+    
+    <link href="Content/lumx.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.4.57/css/materialdesignicons.min.css">
+    <link href="Content/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+</head>
+<body>
+    <!-- Nav Google Plus -->
+    <nav>
+        <div class="bgc-yellow-900 tc-white-1" flex-container="row" flex-align="center center">
+            <div flex-item="3">
+                <h1 class="fs-display-3 display-block"><a href="#/">TasteIt</a></h1>
+            </div>
+
+            <div flex-item="3">
+                <div class="toolbar__right">
+                    <lx-search-filter model="searchFilter.second" filter-width="100%"></lx-search-filter>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- / Nav Google Plus -->
+
+
+    <div class="container">
+        <div ng-view flex-container="row" flex-align="center">
+
+        </div>
+        <hr />
+        <footer>
+            <p>{{ date.Yearfull() }} 2016 - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <!--<script src="Scripts/jquery-2.1.4.intellisense.js"></script>-->
+    <script src="Scripts/jquery.validate.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-resource.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+    <script src="Scripts/moment-with-locales.js"></script>
+    <script src="Scripts/lumx.js"></script>
+    <script src="Scripts/pages/app.js"></script>
+    <script src="Scripts/pages/controllers.js"></script>
+    <script src="Scripts/pages/services.js"></script>
+</body>
+</html>

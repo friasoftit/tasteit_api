@@ -1,0 +1,24 @@
+﻿
+
+    <div flex-item="4" class="m+">
+        <div class="card">
+            <div class="p+">
+                <!--<strong class="fs-headline display-block">Que te gustaría recomendar?</strong>-->
+                <!--<span class="fs-subhead tc-black-2 display-block">Lorem Ipsum</span>-->
+
+                <div class="paragraph fs-body-1">
+                    <lx-text-field label="Que te gustaría recomendar?">
+                        <input type="text" ng-model="textFields.comments">
+                    </lx-text-field>
+                </div>
+            </div>
+
+            <div class="card__actions">
+                <button id="btnPublicar" class="btn btn--m btn--orange btn--raised" lx-ripple ng-click="">Publicar</button>
+                <button id="btnPublicar" class="btn btn--m btn--orange btn--icon" lx-ripple lx-tooltip="Subir imagen"><i class="mdi mdi-camera"></i></button>
+                <button id="btnPublicar" class="btn btn--m btn--orange btn--icon" lx-ripple lx-tooltip="Publicar link"><i class="mdi mdi-link"></i></button>
+                <button id="btnPublicar" class="btn btn--m btn--orange btn--icon" lx-ripple lx-tooltip="Compartir ubicación"><i class="mdi mdi-map-marker"></i></button>
+                <a href="#/establecimiento/new">Crear Post</a>
+            </div>
+        </div>
+    </div>
