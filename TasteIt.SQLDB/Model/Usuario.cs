@@ -13,7 +13,7 @@ namespace TasteIt.SQLDB.Model
         public Usuario()
         {
             ComentarioEstablecimientos = new HashSet<ComentarioEstablecimiento>();
-            Promociones = new HashSet<Promocion>();
+            EscribioRespuestas = new HashSet<EscribioRespuesta>();
             ValoracionEstablecimientos = new HashSet<ValoracionEstablecimiento>();
         }
 
@@ -48,21 +48,17 @@ namespace TasteIt.SQLDB.Model
 
         public int IdRol { get; set; }
 
-        public int IdUbicacion { get; set; }
-
         public int? IdImagen { get; set; }
 
         public virtual Imagen Imagene { get; set; }
 
         public virtual Rol Role { get; set; }
 
-        public virtual Ubicacion Ubicacione { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ComentarioEstablecimiento> ComentarioEstablecimientos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Promocion> Promociones { get; set; }
+        public virtual ICollection<EscribioRespuesta> EscribioRespuestas { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ValoracionEstablecimiento> ValoracionEstablecimientos { get; set; }

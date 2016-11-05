@@ -23,14 +23,10 @@ namespace TasteIt.SQLDB.Model
 
         public int IdEstablecimiento { get; set; }
 
-        public int IdUsuario { get; set; }
-
         public int IdImagen { get; set; }
 
         public virtual Establecimiento Establecimiento { get; set; }
 
         public virtual Imagen Imagene { get; set; }
-
-        public virtual Usuario Usuario { get; set; }
     }
 }

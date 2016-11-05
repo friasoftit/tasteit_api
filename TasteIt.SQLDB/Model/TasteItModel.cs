@@ -10,6 +10,9 @@ namespace TasteIt.SQLDB.Model
         public TasteItModel()
             : base("name=TasteIt_Model")
         {
+            //Database.SetInitializer(new CircularReferenceDataInitializer());
+            //this.Configuration.LazyLoadingEnabled = false;
+            //this.Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<Asentamiento> Asentamientos { get; set; }
@@ -24,10 +27,11 @@ namespace TasteIt.SQLDB.Model
         public virtual DbSet<TipoAsentamiento> TipoAsentamientos { get; set; }
         public virtual DbSet<TipoEstablecimiento> TipoEstablecimientos { get; set; }
         public virtual DbSet<TipoImagen> TipoImagenes { get; set; }
-        public virtual DbSet<Ubicacion> Ubicaciones { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<ComentarioEstablecimiento> ComentarioEstablecimientos { get; set; }
+        public virtual DbSet<EscribioRespuesta> EscribioRespuestas { get; set; }
         public virtual DbSet<Promocion> Promociones { get; set; }
+        public virtual DbSet<RespuestaComentario> RespuestaComentarios { get; set; }
         public virtual DbSet<ValoracionEstablecimiento> ValoracionEstablecimientos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -35,6 +39,12 @@ namespace TasteIt.SQLDB.Model
             modelBuilder.Entity<Asentamiento>()
                 .Property(e => e.Nombre)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Asentamiento>()
+                .HasMany(e => e.Establecimientos)
+                .WithRequired(e => e.Asentamiento)
+                .HasForeignKey(e => e.IdAsentamiento)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Calificacion>()
                 .Property(e => e.Descripcion)
@@ -81,10 +91,19 @@ namespace TasteIt.SQLDB.Model
                 .HasPrecision(9, 6);
 
             modelBuilder.Entity<Establecimiento>()
+                .Property(e => e.Direccion)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Establecimiento>()
                 .HasMany(e => e.ComentarioEstablecimientos)
                 .WithRequired(e => e.Establecimiento)
                 .HasForeignKey(e => e.IdEstablecimiento)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Establecimiento>()
+                .HasMany(e => e.EscribioRespuestas)
+                .WithOptional(e => e.Establecimiento)
+                .HasForeignKey(e => e.IdEstablecimineto);
 
             modelBuilder.Entity<Establecimiento>()
                 .HasMany(e => e.Promociones)
@@ -138,12 +157,6 @@ namespace TasteIt.SQLDB.Model
                 .HasForeignKey(e => e.IdMunicipio)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Municipio>()
-                .HasMany(e => e.Ubicaciones)
-                .WithRequired(e => e.Municipio)
-                .HasForeignKey(e => e.IdMunicipio)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<OrigenImagen>()
                 .Property(e => e.Nombre)
                 .IsUnicode(false);
@@ -180,8 +193,9 @@ namespace TasteIt.SQLDB.Model
 
             modelBuilder.Entity<TipoEstablecimiento>()
                 .HasMany(e => e.Establecimientos)
-                .WithOptional(e => e.TipoEstablecimiento)
-                .HasForeignKey(e => e.IdTipoEstablecimiento);
+                .WithRequired(e => e.TipoEstablecimiento)
+                .HasForeignKey(e => e.IdTipoEstablecimiento)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TipoImagen>()
                 .Property(e => e.Tipo)
@@ -191,22 +205,6 @@ namespace TasteIt.SQLDB.Model
                 .HasMany(e => e.Imagenes)
                 .WithRequired(e => e.TipoImagene)
                 .HasForeignKey(e => e.IdTipoImagenes)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Ubicacion>()
-                .Property(e => e.Direccion)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Ubicacion>()
-                .HasMany(e => e.Establecimientos)
-                .WithRequired(e => e.Ubicacione)
-                .HasForeignKey(e => e.IdUbicacion)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Ubicacion>()
-                .HasMany(e => e.Usuarios)
-                .WithRequired(e => e.Ubicacione)
-                .HasForeignKey(e => e.IdUbicacion)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Usuario>()
@@ -236,10 +234,9 @@ namespace TasteIt.SQLDB.Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Usuario>()
-                .HasMany(e => e.Promociones)
-                .WithRequired(e => e.Usuario)
-                .HasForeignKey(e => e.IdUsuario)
-                .WillCascadeOnDelete(false);
+                .HasMany(e => e.EscribioRespuestas)
+                .WithOptional(e => e.Usuario)
+                .HasForeignKey(e => e.IdUsuario);
 
             modelBuilder.Entity<Usuario>()
                 .HasMany(e => e.ValoracionEstablecimientos)
@@ -251,8 +248,24 @@ namespace TasteIt.SQLDB.Model
                 .Property(e => e.Comentario)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<ComentarioEstablecimiento>()
+                .HasMany(e => e.RespuestaComentarios)
+                .WithRequired(e => e.ComentarioEstablecimiento)
+                .HasForeignKey(e => e.IdComentario)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<EscribioRespuesta>()
+                .HasMany(e => e.RespuestaComentarios)
+                .WithRequired(e => e.EscribioRespuesta)
+                .HasForeignKey(e => e.IdEscribioRespuesta)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Promocion>()
                 .Property(e => e.Descripcion)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<RespuestaComentario>()
+                .Property(e => e.Comentario)
                 .IsUnicode(false);
         }
     }

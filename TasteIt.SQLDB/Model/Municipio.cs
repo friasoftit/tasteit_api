@@ -13,7 +13,6 @@ namespace TasteIt.SQLDB.Model
         public Municipio()
         {
             Asentamientos = new HashSet<Asentamiento>();
-            Ubicaciones = new HashSet<Ubicacion>();
         }
 
         public int Id { get; set; }
@@ -28,8 +27,5 @@ namespace TasteIt.SQLDB.Model
         public virtual ICollection<Asentamiento> Asentamientos { get; set; }
 
         public virtual Estado Estado { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ubicacion> Ubicaciones { get; set; }
     }
 }

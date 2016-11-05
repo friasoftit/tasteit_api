@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasteIt.WebUI", "TasteIt.WebUI\TasteIt.WebUI.csproj", "{BA779346-5B27-41BF-BA14-E3DFC793CFA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasteIt.WebAPI", "TasteIt.WebAPI\TasteIt.WebAPI.csproj", "{BA779346-5B27-41BF-BA14-E3DFC793CFA3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasteIt.Domain", "TasteIt.Domain\TasteIt.Domain.csproj", "{1614BAC2-7F39-4C01-9E89-6975FFB3D2F8}"
 EndProject

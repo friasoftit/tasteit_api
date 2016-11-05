@@ -71,7 +71,6 @@
     <Compile Include="Model\RolRepository.cs" />
     <Compile Include="Model\TipoAsentamientoRepository.cs" />
     <Compile Include="Model\TipoImagenRepository.cs" />
-    <Compile Include="Model\UbicacionRepository.cs" />
     <Compile Include="Model\UsuarioRepository.cs" />
     <Compile Include="Model\ValoracionEstablecimientoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

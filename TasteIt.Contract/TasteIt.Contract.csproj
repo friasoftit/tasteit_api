@@ -51,6 +51,7 @@
     <Compile Include="Model\IAsentamientoRepository.cs" />
     <Compile Include="Model\ICalificacionRepository.cs" />
     <Compile Include="Model\ICategoriaRepository.cs" />
+    <Compile Include="Model\IEscribioRespuestaRepository.cs" />
     <Compile Include="Model\IComentarioEstablecimientoRepository.cs" />
     <Compile Include="Model\IEstablecimientoRepository.cs" />
     <Compile Include="Model\IEstadoRepository.cs" />
@@ -58,10 +59,11 @@
     <Compile Include="Model\IMunicipioRepository.cs" />
     <Compile Include="Model\IOrigenImagenRepository.cs" />
     <Compile Include="Model\IPromocionRepository.cs" />
+    <Compile Include="Model\IRespuestaComentarioRepository.cs" />
     <Compile Include="Model\IRolRepository.cs" />
     <Compile Include="Model\ITipoAsentamientoRepository.cs" />
+    <Compile Include="Model\ITipoEstablecimientoRepository.cs" />
     <Compile Include="Model\ITipoImagenRepository.cs" />
-    <Compile Include="Model\IUbicacionRepository.cs" />
     <Compile Include="Model\IUsuarioRepository.cs" />
     <Compile Include="Model\IValoracionEstablecimientoRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
